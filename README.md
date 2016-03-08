@@ -11,9 +11,8 @@ The web application lets users manage bitbars, a new form of crypto currency. Ea
 ## Setup
 A VirtualBox image with Ubuntu Desktop (14.04 LTS), Ruby on Rails, and the bitbar application is available at:
 - OVA: http://pages.cs.wisc.edu/~agarwalt/Assignment2.ova
-- VMDK: http://pages.cs.wisc.edu/~agarwalt/Ubuntu-VM%20for%20Assignment%202.vmdk
 
-Note these files are YUUGE! The OVA is almost 2GB and the VMDK is 5.5GB. Downloading it from a campus internet connection may be much faster than downloading it from a home internet connection. I found (on a Mac) that I could create a new virtual machine marked Linux/Ubuntu 64-bit, add the VMDK file, and skip downloading the OVA file and it worked well. This hasn't been tested on all platforms.
+Note this file is YUUGE! The OVA is almost 2GB. Downloading it from a campus internet connection may be much faster than downloading it from a home internet connection. I found (on a Mac) that I could create a new virtual machine marked Linux/Ubuntu 64-bit, add the VMDK file, and skip downloading the OVA file and it worked well. This hasn't been tested on all platforms.
 
 If you like, you can also setup your own Ruby on Rails installation (ruby 2.0, rails 4.0) and clone this repo to get the bitbar application.
 
