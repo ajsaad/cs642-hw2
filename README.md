@@ -10,19 +10,19 @@ The web application lets users manage bitbars, a new form of crypto currency. Ea
 
 ## Setup
 A VirtualBox image with Ubuntu Desktop (14.04 LTS), Ruby on Rails, and the bitbar application is available at:
-```
-http://pages.cs.wisc.edu/~agarwalt/Ubuntu-VM%20for%20Assignment%202.vmdk
-```
-Note this file is YUUGE! It is 5.5GB. Downloading it from a campus internet connection may be much faster than downloading it from a home internet connection. If you like, you can also setup your own Ruby on Rails installation (ruby 2.0, rails 4.0) and clone this repo to get the bitbar application.
+- OVA: http://pages.cs.wisc.edu/~agarwalt/Assignment2.ova
+- VMDK: http://pages.cs.wisc.edu/~agarwalt/Ubuntu-VM%20for%20Assignment%202.vmdk
+
+Note these files are YUUGE! The OVA is almost 2GB and the VMDK is 5.5GB. Downloading it from a campus internet connection may be much faster than downloading it from a home internet connection. If you like, you can also setup your own Ruby on Rails installation (ruby 2.0, rails 4.0) and clone this repo to get the bitbar application.
 
 As with the previous assignment, this Ubuntu image has a user account (`user`) with password `user`.
 
-The bitbar source code can be found in `~user/cs642/bitbar`. To start the web application, open a terminal:
+The bitbar source code can be found in `~user/cs642/bitbar`. To start the web application, open a terminal and run the commands:
 ```
 cd cs642/bitbar
 rails server
 ```
-Then open a web browser and navigate to the URL `http://localhost:3000`. You can close the server by pressing `Ctrl+C` in the terminal or just closing the terminal. If you do make changes to the server code you do NOT need to restart the server every time you make a change to the Rails source; the running Rails server will automatically update the website when you make a change to the source code.
+Then open a web browser and navigate to the URL `http://localhost:3000`. You can close the server by pressing `Ctrl+C` in the terminal. If you do make changes to the server code you do NOT need to restart the server every time you make a change to the Rails source; the running Rails server will automatically update the website when you make a change to the source code.
 
 If you see the following error message:
 ```
