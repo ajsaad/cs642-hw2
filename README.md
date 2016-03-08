@@ -24,6 +24,16 @@ rails server
 ```
 Then open a web browser and navigate to the URL `http://localhost:3000`. You can close the server by pressing `Ctrl+C` in the terminal or just closing the terminal. If you do make changes to the server code you do NOT need to restart the server every time you make a change to the Rails source; the running Rails server will automatically update the website when you make a change to the source code.
 
+If you see the following error message:
+```
+A server is already running. Check /home/user/cs642/bitbar/tmp/pids/server.pid
+```
+From the bitbar directory run the following commands to delete a stale pid file and restart the rails sever:
+```
+rm tmp/pids/server.pid
+rails server
+```
+
 ## Attack A: Cookie Theft
 Your solution is a URL starting with `http://localhost:3000/profile?username=`
 The grader will already be logged in to Bitbar before loading your URL. Your goal is to steal the user’s bitbar session cookie and send it to `http://localhost:3000/steal_cookie?cookie=...cookiedatahere...`. You can view the most recently stolen cookie using this page: `
