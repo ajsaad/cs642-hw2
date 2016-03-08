@@ -62,7 +62,7 @@ Your attack must work by involving user interaction (i.e. do NOT just do another
 
 It should not be obvious that your page is loading content from `http://localhost:3000`. There is some basic framebusting code that protects the application from this sort of attack. You must come up with a way of bypassing this defense. You may NOT used the disable `fb=yes` paramater you used in the previous attack. Make sure to test your page layout after resizing your browser to make sure the attack will work for reasonable page resolutions (we will test using a minimum resolution of 800x600).
 
-# Attack D: Profile Worm
+## Attack D: Profile Worm
 Your solution is a profile that, when viewed, transfers 1 bitbar from the current user to a user called attacker and replaces the profile of the current user with itself. Submit a file named `d.txt` containing your malicious profile. Your malicious profile should include a witty message to the grader (to make grading more amusing).
 
 To grade your attack, we will cut and paste the submitted profile into the profile of the attacker user and view that profile using the grader's account. We will then view the copied profile with more accounts, checking for the transfer and replication.
