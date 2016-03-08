@@ -9,8 +9,11 @@ You are given the source code for a banking web application written in Ruby on R
 The web application lets users manage bitbars, a new form of crypto currency. Each user is given 200 bitbars when they register for the site. They can transfer bitbars to other users using an intuitive web interface, as well as create and view user profiles. You have been given the source code for the bitbar application. Real web attackers may or may not have access to the source code of the target website, but having source might make finding the vulnerabilities a bit easier. Note that we will grade assignments on an unmodified copy of the target web application.
 
 ## Setup
-A VirtualBox image with Ubuntu Desktop, Ruby on Rails, and the bitbar application is available at http://pages.cs.wisc.edu/~agarwalt/Ubuntu-VM%20for%20Assignment%202.vmdk
-Note this file is YUUGE! It is 5.5GB. Downloading it from a campus internet connection may be much faster than downloading it from home internet connection.
+A VirtualBox image with Ubuntu Desktop, Ruby on Rails, and the bitbar application is available at:
+```
+http://pages.cs.wisc.edu/~agarwalt/Ubuntu-VM%20for%20Assignment%202.vmdk
+```
+Note this file is YUUGE! It is 5.5GB. Downloading it from a campus internet connection may be much faster than downloading it from a home internet connection.
 
 As with the previous assignment, this Ubuntu image has a user account (`user`) with password `user`.
 
@@ -23,22 +26,25 @@ Then open a web browser and navigate to the URL `http://localhost:3000`. You can
 
 ## Attack A: Cookie Theft
 Your solution is a URL starting with `http://localhost:3000/profile?username=`
-The grader will already be logged in to Bitbar before loading your URL. Your goal is to steal the the user’s bitbar session cookie and send it to `http://localhost:3000/steal_cookie?cookie=...cookiedatahere...`. You can view the most recently stolen cookie using this page: `
+The grader will already be logged in to Bitbar before loading your URL. Your goal is to steal the user’s bitbar session cookie and send it to `http://localhost:3000/steal_cookie?cookie=...cookiedatahere...`. You can view the most recently stolen cookie using this page: `
 ```
 http://localhost:3000/view_stolen_cookie
 ```
 Only the first 64 characters of your stolen cookie will be stored/displayed. This is expected and ok.
-• The attack should not be visibly obvious to the user. Except for the browser location bar (which can be different), the grader should see a page that looks as it normally does when the grader visits their profile page. No changes to the site's appearance or extraneous text should be visible. Avoiding the red warning text is an important part of the attack. It is ok if the number of bitbars displayed or the contents of the profile are not correct (so long as they look normal). It's also ok if the page looks weird briefly before correcting itself.
+
+The attack should not be visibly obvious to the user. Except for the browser location bar (which can be different), the grader should see a page that looks as it normally does when the grader visits their profile page. No changes to the site's appearance or extraneous text should be visible. Avoiding the red warning text is an important part of the attack. It is ok if the number of bitbars displayed or the contents of the profile are not correct (so long as they look normal). It's also ok if the page looks weird briefly before correcting itself.
 
 Put your answer in a file named `a.txt`.
 
 **Hint:** try adding things like random text to the end of the URL. How does this change the HTML source code loaded by the browser?
 
 ## Attack B: Cross-Site Request Forgery
-Your solution is a short HTML document named b.html that the grader will open using the web browser. The grader will already be logged in to Bitbar before loading your page. Transfer 10 bitbars from the grader's account to the attacker's account. As soon as the transfer is complete, the browser should redirect to `http://pages.cs.wisc.edu/~ace/cs642-spring-2016.html` (so fast that casual or distracted user might not notice). The location bar of the browser should not contain `localhost:3000` at any point. The framebusting code may make this attack harder than necessary. For this attack - and **ONLY** this attack - you may disable framebusting on a page by adding disable `fb=yes` to a URL. For example: ```http://localhost:3000?disable_fb=yes```
+Your solution is a short HTML document named `b.html` that the grader will open using the web browser. The grader will already be logged in to Bitbar before loading your page. Transfer 10 bitbars from the grader's account to the attacker's account. As soon as the transfer is complete, the browser should redirect to `http://pages.cs.wisc.edu/~ace/cs642-spring-2016.html` (fast enough that a casual or distracted user might not notice). The location bar of the browser should not contain `localhost:3000` at any point.
+
+The framebusting code may make this attack harder than necessary. For this attack - and **ONLY** this attack - you may disable framebusting on a page by adding disable `fb=yes` to a URL. For example: `http://localhost:3000?disable_fb=yes`.
 
 
-# Attack C: SQL Injection
+## Attack C: SQL Injection
 
 Your solution is one or two HTML documents named `c.html` and (optionally) `c2.html`. The grader will open `c.html` using the web browser. The grader will already be logged in to Bitbar before loading your page. The grader will interact with the web page in a way that is reasonable. This means that if there is a button on the web page for the user to click, the grader will click it. The same goes for any other interaction on the page. After interacting with the page, 10 bitbars should be transferred from the grader's account to the attacker's account. As soon as the transfer is complete the browser should be redirected to `http://pages.cs.wisc.edu/~ace/cs642-spring-2016.html`.
 
