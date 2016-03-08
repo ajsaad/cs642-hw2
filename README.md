@@ -9,11 +9,11 @@ You are given the source code for a banking web application written in Ruby on R
 The web application lets users manage bitbars, a new form of crypto currency. Each user is given 200 bitbars when they register for the site. They can transfer bitbars to other users using an intuitive web interface, as well as create and view user profiles. You have been given the source code for the bitbar application. Real web attackers may or may not have access to the source code of the target website, but having source might make finding the vulnerabilities a bit easier. Note that we will grade assignments on an unmodified copy of the target web application.
 
 ## Setup
-A VirtualBox image with Ubuntu Desktop, Ruby on Rails, and the bitbar application is available at:
+A VirtualBox image with Ubuntu Desktop (14.04 LTS), Ruby (2.0) on Rails (4.0), and the bitbar application is available at:
 ```
 http://pages.cs.wisc.edu/~agarwalt/Ubuntu-VM%20for%20Assignment%202.vmdk
 ```
-Note this file is YUUGE! It is 5.5GB. Downloading it from a campus internet connection may be much faster than downloading it from a home internet connection.
+Note this file is YUUGE! It is 5.5GB. Downloading it from a campus internet connection may be much faster than downloading it from a home internet connection. If you like, you can also setup your Ruby on Rails installation and clone this repo to get the bitbar application.
 
 As with the previous assignment, this Ubuntu image has a user account (`user`) with password `user`.
 
