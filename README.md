@@ -61,12 +61,14 @@ The transfer and application should be reasonably quick (under 15 seconds). Duri
 
 During the transfer and replication process, the browser's location bar should remain at `http://localhost:3000/profile?username=x`, where `x` is the user whose profile is being viewed. The visitor should not see any extra graphical user interface elements (e.g. frames), and the user whose profile is being viewed should appear to have 10 bitbars.
 
-You will not be graded on the corner case where the user viewing the profile has no bitbars to send.
+You will not be graded on the special case where the user viewing the profile has no bitbars to send.
 
 **Hint:** The site allows a sanitized subset of HTML in profiles, but you can get around it. The MySpace vulnerability may provide some inspiration.
 
 ## Deliverables
-1. Create files named a.txt, b.html, and c.html (you can optionally include a second file c2.html), d.txt containing your attacks. You may include a separate README file describing how each attack works. This may be used for partial credit in some circumstances, though partial credit will not normally be given.
+1. Create files named `a.txt`, `b.html`, `c.html`, and `d.txt` containing your attacks (you can optionally include a file `c2.html`). 
+
+1. Create a file named `README` that includes the UWID and names for each group member (there is no special format required). You may also include descriptions of how each attack works. This may be used for partial credit in some circumstances, though partial credit will not normally be given.
 
 1. Put these files into a single directory named `attacks` and package them into a tarball with the following command (where UWID1/2 are your group members' UWID #s):
 ```
@@ -79,7 +81,7 @@ https://uwmad.courses.wisconsin.edu/d2l/home/3199130
 Use Assignments > Dropbox to find the hw-2 submission folder.
 
 ## Grading
-Each attack is worth up to 2 points. If the attack works, then one will receive full credit.
+Each attack is worth up to 2 points. If the attack works, then one will receive full credit. In rare cases, partial credit may be given.
 
 **Beware of race conditions:** Depending on how you write your code, any of these attacks may have race conditions that affect the success of your attacks. Attacks that fail on the grader's browser during grading will receive less than full credit. To ensure that you receive full credit, you should wait after making an outbound network request rather than assuming that the request will be sent immediately.
 
