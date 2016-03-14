@@ -1,6 +1,6 @@
 # CS 642: Computer Security - Homework Two
 
-This homework assignment covers exploitation of web security. You must work with a partner. There are four parts; all are required.
+This homework assignment covers exploitation of web security. You must work with a partner. There are five parts; four are required, one is extra credit. As with the first assignment, if you submit any four working attacks you will get full credit for this assignment.
 
 It is due **March 28, 2016** by 11:59 PM local time. 
 
@@ -55,7 +55,7 @@ Your solution is a short HTML document named `b.html` that the grader will open 
 The framebusting code may make this attack harder than necessary. For this attack - and **ONLY** this attack - you may disable framebusting on a page by adding disable `fb=yes` to a URL. For example: `http://localhost:3000?disable_fb=yes`.
 
 
-## Attack C: SQL Injection
+## Attack C: Clickjacking
 
 Your solution is one or two HTML documents named `c.html` and (optionally) `c2.html`. The grader will open `c.html` using the web browser. The grader will already be logged in to Bitbar before loading your page. The grader will interact with the web page in a way that is reasonable. This means that if there is a button on the web page for the user to click, the grader will click it. The same goes for any other interaction on the page. After interacting with the page, 10 bitbars should be transferred from the grader's account to the attacker's account. As soon as the transfer is complete the browser should be redirected to `http://pages.cs.wisc.edu/~ace/cs642-spring-2016.html`.
 
@@ -76,8 +76,20 @@ You will not be graded on the special case where the user viewing the profile ha
 
 **Hint:** The site allows a sanitized subset of HTML in profiles, but you can get around it. The MySpace vulnerability may provide some inspiration.
 
+## Attack E: SQL Injection
+This attack is **extra credit**.
+
+Your solution is a malicious username that allows you to close an account that you do not have login access to. The grader will create a new user account with your provided username, click on `Close` and then confirm that he or she wants to close the current account. As a result `user3` should be deleted from the database. The new user account should also be deleted to leave no trace of the attack behind. All other accounts should remain.
+
+You can view the list of all active accounts using this page: 
+```
+http://localhost:3000/view_users
+```
+If you mess up your user database while working on the problem, stop Rails and run `rake db:reset` to reset your database.
+Put your final answer in a file named e.txt
+
 ## Deliverables
-1. Create files named `a.txt`, `b.html`, `c.html`, and `d.txt` containing your attacks (you can optionally include a file `c2.html`). 
+1. Create files named `a.txt`, `b.html`, `c.html`, and `d.txt` containing your attacks (you can optionally include a file `c2.html` and the extra credit `e.txt`). 
 
 1. Create a file named `README` that includes the UWID and names for each group member (there is no special format required). You may also include descriptions of how each attack works. This may be used for partial credit in some circumstances, though partial credit will not normally be given.
 
