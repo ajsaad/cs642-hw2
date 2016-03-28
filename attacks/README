@@ -1,0 +1,29 @@
+9064978704 Saad, Alexander
+9065835267 Elizondo, Aaron
+
+Attack A
+	Add a script to the username field that concatenates the steal_cookie URL with the current pages session cookie. 
+	After creating this String we send an http request so that the current pages cookie is saved on view_stolen_cookies.
+	We then redirect the current page to the current users profile.
+
+Attack B
+	Just opens up a hidden frame that populates the transfer form with 10 bitbars to be sent to 'attacker'. After
+	executing the transfer it redirects to our course page.
+
+Attack C
+	Similar to attack B, this opens up a new frame that asks the user to submit the answer to a simple math question.
+	Upon hitting submit, the logged in user ends up transferring 10 bitbars to attacker, and the page is then 
+	redirected to our course webpage. The hard part about this one is that we weren't allowed to disable framebusting.
+	To get around that we have a bit of code that will keep a counter of whenever the page is going to be redirected
+	(which is what the frame busting does). The first redirect results in the page executing normally (transferring 10
+	bitbars), and after it attempts to redirect again we re-redirect it to the course page.
+
+Attack D
+	In profile.html.erb there is a line of code that evals the ID bitbars.className. If we pick something that 
+	isn't sanitized (in this case, span) and give it the ID 'bitbars', whatever we add to its class attribute will
+	be evaluated and therefore executed.
+
+	After figuring that out, there are three main sections of javascript that were added to class=. The first is similar
+	to attacks B and C, and simply transfers a single bitbar from whoever is logged in to the attacker when they view a
+	particular profile. The second section copies the malicious profiles text, and the third secton sets the profile of
+	the currently logged in user to the malicious code as well.
